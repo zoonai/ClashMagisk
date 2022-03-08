@@ -1,1 +1,15 @@
-
+# Untuk Akun Trojan/Go
+proxies:
+#FASTSSH Account
+  - {name: "SG 01 - FS", server: 194.233.86.243, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} #FatsSSH 
+  - {name: "SG 02 - FS", server: 194.233.86.242, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} #FatsSSH
+  - {name: "SG 03 - FS", server: 194.233.86.244, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} #FatsSSH
+  - {name: "SG 04 - FS", server: 194.233.86.246, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true}
+  - {name: "SG 12 - FS", server: 194.233.86.248, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} #FatsSSH 
+  - {name: "SG HE - FS", server: 103.253.24.35, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} #FatsSSH 
+  - {name: "ID 01 - FS", server: 103.167.34.235, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} #FatsSSH
+# HOWDY Account 
+  - {name: "SG 06 - HW", server: 103.253.24.77, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true}
+  - {name: "SG 07 - HW", server: 193.56.255.215, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} 
+  - {name: "ID 01 - HW", server: 210.247.245.119, port: 443, type: trojan, password: password account, sni: api2-t3.musical.ly, skip-cert-verify: true, udp: true} 
+#Unknown Account

@@ -1,0 +1,99 @@
+proxies:
+  - name: "[TrojanGO] FastSSH SG 5"
+    server: 194.233.86.255
+    port: 443
+    type: trojan
+    password: 45b60ed0-6dd4-11ec-b039-217f943883dc
+    network: ws
+    sni: api2-t3.musical.ly
+    skip-cert-verify: true 
+    tls: true
+    udp: true
+    ws-opts:
+      path: /fastssh
+      headers:
+        Host: api2-t3.musical.ly
+  - name: "[TrojanGO] FastSSH SG OVH"
+    server: 51.79.156.168
+    port: 443
+    type: trojan
+    password: 5a5b20b0-6ef2-11ec-b637-225401db9d57
+    network: ws
+    sni: api2-t3.musical.ly
+    skip-cert-verify: true 
+    tls: true
+    udp: true
+    ws-opts:
+      path: /fastssh
+      headers:
+        Host: api2-t3.musical.ly
+  - name: "[TrojanGO] FastSSH SG HE"
+    server: 103.253.24.18
+    port: 443
+    type: trojan
+    password: 00e17370-68f2-11ec-b132-225401db9d57
+    network: ws
+    sni: api2-t3.musical.ly
+    skip-cert-verify: true 
+    tls: true
+    udp: true
+    ws-opts:
+      path: /fastssh
+      headers:
+        Host: api2-t3.musical.ly
+  - name: "[TrojanGO] FastSSH ID"
+    server: 103.167.34.235
+    port: 443
+    type: trojan
+    password: d489ea50-6d70-11ec-b639-225401db9d57
+    network: ws
+    sni: api2-t3.musical.ly
+    skip-cert-verify: true 
+    tls: true
+    udp: true
+    ws-opts:
+      path: /fastssh
+      headers:
+        Host: api2-t3.musical.ly
+  - name: "[TrojanGO] Howdy SG 1"
+    server: 139.162.63.237
+    port: 443
+    type: trojan
+    password: 2cd9e520-6dd0-11ec-ad88-1239d0255272
+    network: ws
+    sni: api2-t3.musical.ly
+    skip-cert-verify: true 
+    tls: true
+    udp: true
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: api2-t3.musical.ly
+  - name: "[TrojanGO] Howdy SG 2"
+    server: 139.162.63.245
+    port: 443
+    type: trojan
+    password: 4b35ae00-6dd0-11ec-a441-1239d0255272
+    network: ws
+    sni: api2-t3.musical.ly
+    skip-cert-verify: true 
+    tls: true
+    udp: true
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: api2-t3.musical.ly
+  - name: "[TrojanGO] Howdy SG 3"
+    server: 172.104.47.70
+    port: 443
+    type: trojan
+    password: 91124c40-6dd0-11ec-b4cb-1239d0255272
+    network: ws
+    sni: api2-t3.musical.ly
+    skip-cert-verify: true 
+    tls: true
+    udp: true
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: api2-t3.musical.ly

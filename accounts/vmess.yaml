@@ -1,0 +1,3 @@
+# Untuk Akun VMESS/VLESS
+proxies:
+  - {name: "SG 001 - FS", server: 172.104.42.56, port: 443, type: vmess, uuid: 9401062b-da74-4291-b33d-f1ce6de04eef, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /fastssh, headers: {Host: api2-t3.musical.ly}}, udp: true}
