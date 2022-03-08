@@ -24,12 +24,12 @@ geoip_file_path="${clash_data_dir}/Country.mmdb"
 yacd_dir="${clash_data_dir}/yacd-gh-pages"
 
 if [ $BOOTMODE ! = true ] ; then
-  abort "Error: silahkan install di magisk manager"
+  abort "ERROR = Silahkan install di Magisk Manager."
 fi
 
 unzip -o "${ZIPFILE}" -x 'META-INF/*' -d ${MODPATH} >&2
 
-ui_print "- Prepare clash execute environment"
+ui_print "- Persiapan Clash execute environment."
 ui_print "- Membuat folder Clash."
 mkdir -p ${clash_data_dir}
 mkdir -p ${clash_data_dir_core}
@@ -56,7 +56,7 @@ custom="${sdcard_dir}/clash-core.zip"
 
 if [ -f "${custom}" ]; then
   cp "${custom}" "${download_clash_zip}"
-  ui_print "- Info: clash-core khusus ditemukan, memulai penginstal"
+  ui_print "- INFO = Clash-Core khusus ditemukan, memulai penginstalan."
   latest_clash_version=custom
 else
   case "${ARCH}" in
@@ -76,11 +76,11 @@ else
   ui_print "- Menggunakan versi: ${version}"
   if [ -f ${sdcard_dir}/"${version}" ]; then
     cp ${sdcard_dir}/"${version}" "${download_clash_zip}"
-    ui_print "- Info: clash-core sudah diunduh, mulai penginstal"
+    ui_print "- INFO = Clash-Core selesai diunduh, memulai penginstalan."
     latest_clash_version=custom
   else
-    ui_print "- Download latest clash core from forks link"
-    ui_print "- Hubungkan tautan unduhan forks-clash."
+    ui_print "- Download Versi Terbaru Clash Core dari tautan Fork."
+    ui_print "- Menghubungkan tautan unduhan Forks-Clash."
     
     forks_clash_link="https://github.com/taamarin/MetaforCfm/releases"
 
@@ -91,14 +91,14 @@ else
     elif [ -x "/data/adb/magisk/busybox" ] ; then
       latest_clash_version=`${busybox_data_dir} wget -qO- https://api.github.com/repos/taamarin/MetaforCfm/releases | grep -m 1 "tag_name" | grep -o "v[0-9.]*"`
     else
-      ui_print "- Error: Tidak dapat menemukan curl atau wget, silakan instal."
+      ui_print "- ERROR = Tidak dapat menemukan curl atau wget, silakan instal."
       abort
     fi
 
     if [ "${latest_clash_version}" = "" ] ; then
-      ui_print "- Error: Sambungkan tautan unduhan clash resmi gagal."
-      ui_print "- Tips: You can download clash core manually,"
-      ui_print "      dan taruh di /sdcard/Download"
+      ui_print "- ERROR = Sambungkan tautan unduhan Clash resmi gagal."
+      ui_print "- TIPS = Kamu dapat mengunduh Clash Core secara manual,"
+      ui_print "      dan simpan di /sdcard/Download"
       abort
     fi
     ui_print "- Unduh inti clash terbaru ${latest_clash_version}-${ARCH}"
@@ -110,49 +110,49 @@ else
     elif [ -x "/data/adb/magisk/busybox" ] ; then
       ${busybox_data_dir} wget "${forks_clash_link}/download/${latest_clash_version}/${version}" -O "${download_clash_zip}" >&2
     else
-      ui_print "- Error: tidak dapat menemukan curl atau wget, silakan instal."
+      ui_print "- ERROR = Tidak dapat menemukan curl atau wget, silakan instal."
       abort
     fi
 
     if [ "$?" != "0" ] ; then
-      ui_print "- Error: Unduh inti clash gagal."
-      ui_print "- Tips: anda dapat mengunduh clash core secara manual,"
-      ui_print "      dan taruh di /sdcard/Download"
+      ui_print "- ERROR = Unduh inti clash gagal."
+      ui_print "- TIPS = Kamu dapat mengunduh Clash Core secara manual,"
+      ui_print "      dan simpan di /sdcard/Download."
       abort
     fi
   fi
 fi
 
-ui_print "- Unduh Yet Another Clash Dashboard"
+ui_print "- Unduh Yet Another Clash Dashboard."
 ${busybox_data_dir} wget ${official_yacd_link} -O ${download_yacd_zip}
 rm -rf "${clash_data_dir}/yacd-gh-pages/*"
 unzip -o "${download_yacd_zip}" -d ${clash_data_dir}/yacd-gh-pages/ >&2
 
-ui_print "- Unduh Scripts Clash"
+ui_print "- Unduh Scripts Clash."
 ${busybox_data_dir} wget ${official_scripts_link} -O ${download_scripts_zip}
 rm -rf "${clash_data_dir}/scripts/*"
 unzip -j -o "${download_scripts_zip}" "ClashforMagisk-master/scripts/*" -d ${clash_data_dir}/scripts/ >&2
 
-ui_print "- Unduh Scripts Clash"
+ui_print "- Unduh Config Accounts Clash."
 ${busybox_data_dir} wget ${official_scripts_link} -O ${download_scripts_zip}
 rm -rf "${clash_data_dir}/accounts/*"
 unzip -j -o "${download_scripts_zip}" "ClashforMagisk-master/accounts/*" -d ${clash_data_dir}/accounts/ >&2
 
-ui_print "- Unduh Scripts Clash"
+ui_print "- Unduh Config Rules Clash."
 ${busybox_data_dir} wget ${official_scripts_link} -O ${download_scripts_zip}
 rm -rf "${clash_data_dir}/rules/*"
 unzip -j -o "${download_scripts_zip}" "ClashforMagisk-master/rules/*" -d ${clash_data_dir}/rules/ >&2
 
-ui_print "- Unduh Cert"
+ui_print "- Unduh Cert."
 ${busybox_data_dir} wget ${official_cert_link} -O ${download_cert}
 mv -f ${download_cert} ${MODPATH}${ca_path}
 
-ui_print "- Unduh GeoX"
+ui_print "- Unduh GeoX."
 ${busybox_data_dir} wget ${official_GeoIP_link} -O ${download_GeoIP}
 ${busybox_data_dir} wget ${official_GeoSite_link} -O ${download_GeoSite}
 
-ui_print "- Unduh Selesai"
-ui_print "- Konfigurasi Clash dan file"
+ui_print "- Mengunduh Selesai."
+ui_print "- Konfigurasi Clash dan file."
 if [ ! -d /data/adb/service.d ] ; then
   mkdir -p /data/adb/service.d
 fi
@@ -177,7 +177,7 @@ rm -rf ${MODPATH}/uninstall.sh
 rm -rf ${clash_service_dir}/cfm_service.sh
 mv -f ${clash_data_dir}/scripts/config.yaml ${clash_data_dir}/
 
-ui_print "- Execute ZipFile"
+ui_print "- Eksekusi ZipFile."
 if [ ! -f "${MODPATH}/service.sh" ] ; then
   unzip -j -o "${ZIPFILE}" 'service.sh' -d ${MODPATH} >&2
 fi
@@ -190,8 +190,8 @@ if [ ! -f "${clash_service_dir}/cfm_service.sh" ] ; then
   unzip -j -o "${ZIPFILE}" 'cfm_service.sh' -d ${clash_service_dir} >&2
 fi
 
-ui_print "- Install clash execute file"
-ui_print "- Proses Core $ARCH execute files"
+ui_print "- Install Clash Eksekusi files."
+ui_print "- Memproses Core $ARCH Eksekusi files."
 if [ ! -f "${bin_path}/ss" ] ; then
   unzip -j -o "${download_clash_zip}" "ss" -d ${MODPATH}${bin_path} >&2
 fi
@@ -210,7 +210,7 @@ rm -rf ${clash_data_dir}/scripts/config.yaml
 sleep 1
 
 # generate module.prop
-ui_print "- Create module.prop"
+ui_print "- Membuat module.prop."
 rm -rf ${MODPATH}/module.prop
 touch ${MODPATH}/module.prop
 echo "id=ClashMagisk" > ${MODPATH}/module.prop
@@ -221,7 +221,7 @@ echo "versionCode=20220308" >> ${MODPATH}/module.prop
 echo "author=Zoonai" >> ${MODPATH}/module.prop
 echo "description=Clash core with service scripts for Android" >> ${MODPATH}/module.prop
 
-ui_print "- Mengatur Permissons"
+ui_print "- Mengatur Perizinan."
 set_perm_recursive ${MODPATH} 0 0 0755 0644
 set_perm_recursive ${clash_service_dir} 0 0 0755 0755
 set_perm_recursive ${clash_data_dir} ${system_uid} ${system_gid} 0755 0644
