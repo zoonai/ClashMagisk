@@ -1,6 +1,6 @@
-<h1 align="center"><img src="https://github.com/taamarin/SubClash/blob/main/screenshot/Tak%20berjudul3_20220223032058.png" alt="Clash" width="200">
-<br>Clash for Magisk</br>
-</h1>
+<p align="center"><img src="https://github.com/taamarin/SubClash/blob/main/screenshot/Tak%20berjudul3_20220223032058.png" alt="Clash" width="200">
+<br><h1 align="center">Clash Magisk</h1></br>
+</p>
 
 ## Flash Module
 > Flash Module `Clash Magisk`
