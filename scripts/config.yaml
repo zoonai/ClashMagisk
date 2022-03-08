@@ -1,1 +1,80 @@
+# ----------------------------jangan di edit-------------------------------- #
+tproxy-port: 7893
+redir-port: 7890
+bind-address: "*"
+mode: rule
+allow-lan: true
+log-level: silent
+external-controller: 0.0.0.0:9090
+external-ui: yacd-gh-pages
+unified-delay: true
+ipv6: false
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  use-host: true
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+# --------------------- Jangan di edit > info cek grup gatcha ------------- #
 
+profile:
+  store-selected: true
+  tracing: true
+  store-fake-ip: false
+proxy-groups:
+  - name: Trojan
+    type: select
+    use:
+      - Trojan
+  - name: Vmess
+    type: select
+    use: 
+      - Vmess
+  - name: Account
+    type: select 
+    proxies:
+      - Trojan
+      - Vmess
+proxy-providers:
+  Trojan:
+    type: file
+    path: ./accounts/trojan.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: http://cp.cloudflare.com
+  Vmess:
+    type: file
+    path: ./accounts/vmess.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: http://cp.cloudflare.com
+ 
+# Rules Provider Jika Anda Tahu Cara Menggunakannya Silakan Ubah
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://bit.ly/3mhQskP"
+    path: ./rules/reject.yaml
+    interval: 86400    
+  sosmed:
+    behavior: classical
+    type: file
+    path: ./rules/sosmed.yaml
+    interval: 86400
+  streaming:
+    behavior: classical
+    type: file
+    #interval: 86400
+    path: ./rules/streaming.yaml    
+  game:
+    behavior: classical
+    type: file
+    interval: 86400
+    path: ./rules/game.yaml
+rules:
+  - MATCH,Account
