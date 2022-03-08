@@ -1,16 +1,15 @@
-# Clash for Magisk
-<h1 align="center">
-  <img src="https://github.com/taamarin/SubClash/blob/main/screenshot/Tak%20berjudul3_20220223032058.png" alt="Clash" width="200">
-  <br>Clash<br>
+<h1 align="center"><img src="https://github.com/taamarin/SubClash/blob/main/screenshot/Tak%20berjudul3_20220223032058.png" alt="Clash" width="200">
+<br>Clash for Magisk</br>
 </h1>
 
-<h4 align="center">Proxy Transparan for android.</h4>
+## Flash Module
+> Flash Module `Clash Magisk`
 
-## flash module
-  > Flash Module Clash for Magisk
->`reboot`
+> Di Magisk Manager
 
-## Open Folder
+>`Reboot`
+
+## Buka Folder
 > ```/data/adb/clash```
 
 > Muncul file `clash.pid` & `run.logs`
